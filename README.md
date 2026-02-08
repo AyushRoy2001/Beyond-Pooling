@@ -56,10 +56,5 @@ We borrow code from MVFA (https://arxiv.org/pdf/2403.12570) and thank the author
 
 # Citation
 ```bibtex
-@article{roy2025exchangeability,
-  title={Is Exchangeability better than IID to handle Data Distribution Shifts while Pooling Data for Data-scarce Medical image segmentation?},
-  author={Roy, Ayush and Enam, Samin and Xia, Jun and Lokhande, Vishnu Suresh and Kim, Won Hwa},
-  journal={arXiv preprint arXiv:2507.19575},
-  year={2025}
-}
+
 ```
