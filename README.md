@@ -39,7 +39,9 @@ For the next step of domain addition, please run the following commands.
 ```
 
 ## Testing
+Modify --obj for testing the required dataset and --save_path to load the model weights saved at your specific local path.
 ```
+python test_zero.py --obj Liver --gpu 'cuda:4' --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
 ```
 
 ## Qualitative Results
