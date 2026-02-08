@@ -1,0 +1,28 @@
+import argparse
+
+def parse_option():
+    parser = argparse.ArgumentParser(description='Arguments')
+    parser.add_argument('--model_name', type=str, default='ViT-L-14-336', help="ViT-B-16-plus-240, ViT-L-14-336")
+    parser.add_argument('--pretrain', type=str, default='openai', help="laion400m, openai")
+    parser.add_argument('--obj', type=str, default='Retina_RESC')
+    parser.add_argument('--data_path', type=str, default='./data/')
+    parser.add_argument('--batch_size', type=int, default=1)
+    parser.add_argument('--save_model', type=int, default=1)
+    parser.add_argument('--img_size', type=int, default=240)
+    parser.add_argument('--save_path', type=str, default='./ckpt/zero-shot/')
+    parser.add_argument('--load_path', type=str, default='./ckpt/zero-shot/', help="for cold starting")
+    parser.add_argument("--epoch", type=int, default=10, help="epochs")
+    parser.add_argument("--learning_rate", type=float, default=0.0001, help="learning rate")
+    parser.add_argument("--features_list", type=int, nargs="+", default=[6, 12, 18, 24], help="features used")
+    parser.add_argument('--seed', type=int, default=111)
+    parser.add_argument('--shot', type=int, default=4)
+    parser.add_argument('--iterate', type=int, default=0)
+    parser.add_argument('--gpu', type=str, default='cuda:0')
+    parser.add_argument('--exclude', type=str, nargs='+', default=[], help="class names to exclude from loading")
+    parser.add_argument('--intra_weight', type=float, default=0.5)
+    parser.add_argument('--inter_weight', type=float, default=1.5)
+    parser.add_argument('--lr_variance', type=float, default=1.0)
+    parser.add_argument('--ratio', type=float, default=0.036)
+    parser.add_argument('--axis', type=float, default=576)
+    args = parser.parse_args()
+    return args
