@@ -35,9 +35,49 @@ Please follow the instruction given in https://github.com/MediaBrain-SJTU/MVFA-A
 ## Training
 For the first step of domain addition (warm starting), please run the following commands to create the model weights which will be re-utilized in the subsequent steps of domain addition.
 ```
+python train_zero.py --obj Retina_OCT2017 --gpu 'cuda:0' --exclude Chest Histopathology Brain Liver --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
+python train_zero.py --obj Retina_RESC --gpu 'cuda:1' --exclude Histopathology Liver Brain Chest --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
+python train_zero.py --obj Brain --gpu 'cuda:2' --exclude Liver Chest Retina_OCT2017 Histopathology --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
+python train_zero.py --obj Chest --gpu 'cuda:3' --exclude Brain Liver Retina_RESC Retina_OCT2017 --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
+python train_zero.py --obj Liver --gpu 'cuda:4' --exclude Histopathology Retina_RESC Chest Retina_OCT2017 --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
+python train_zero.py --obj Histopathology --gpu 'cuda:5' --exclude Liver Retina_RESC Brain Retina_OCT2017 --intra_weight [PLEASE TRY 1.5, 1.0, 0.5] --inter_weight [PLEASE TRY 1.5, 1.0, 0.5] --save_path 'YOUR_MODEL_CHECKPOINT_PATH'
 ```
 For the next step of domain addition, please run the following commands.
 ```
+#### ADDITION OF THE SECOND DOMAIN
+python train_zero_da.py --obj Retina_OCT2017 --gpu 'cuda:0' --exclude Chest Histopathology Retina_RESC Liver --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+python train_zero_da.py --obj Retina_RESC --gpu 'cuda:1' --exclude Retina_OCT2017 Liver Brain Chest --intra_weight 0.5 --inter_weight 1.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+python train_zero_da.py --obj Brain --gpu 'cuda:2' --exclude Liver Retina_RESC Retina_OCT2017 Histopathology --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+python train_zero_da.py --obj Chest --gpu 'cuda:3' --exclude Histopathology Liver Retina_RESC Retina_OCT2017 --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+python train_zero_da.py --obj Liver --gpu 'cuda:4' --exclude Histopathology Retina_RESC Brain Retina_OCT2017 --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+python train_zero_da.py --obj Histopathology --gpu 'cuda:5' --exclude Liver Retina_RESC Brain Chest --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_WARM_START'
+```
+```
+#### ADDITION OF THE THIRD DOMAIN
+python train_zero_da.py --obj Retina_OCT2017 --gpu 'cuda:0' --exclude Brain Retina_RESC Liver --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+python train_zero_da.py --obj Retina_RESC --gpu 'cuda:1' --exclude Retina_OCT2017 Liver Histopathology Chest --intra_weight 0.5 --inter_weight 1.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+python train_zero_da.py --obj Brain --gpu 'cuda:2' --exclude Liver Retina_RESC Chest Histopathology --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+python train_zero_da.py --obj Chest --gpu 'cuda:3' --exclude Histopathology Brain Retina_RESC Retina_OCT2017 --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+python train_zero_da.py --obj Liver --gpu 'cuda:4' --exclude Histopathology Chest Brain Retina_RESC --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+python train_zero_da.py --obj Histopathology --gpu 'cuda:5' --exclude Liver Retina_OCT2017 Brain Chest --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_SECOND_DOMAIN_ADDITION'
+```
+```
+#### ADDITION OF THE FOURTH DOMAIN
+python train_zero_da.py --obj Retina_OCT2017 --gpu 'cuda:5' --exclude Histopathology Brain Retina_RESC Liver --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+python train_zero_da.py --obj Retina_RESC --gpu 'cuda:6' --exclude Retina_OCT2017 Liver Histopathology Brain --intra_weight 0.5 --inter_weight 1.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+python train_zero_da.py --obj Brain --gpu 'cuda:7' --exclude Retina_OCT2017 Retina_RESC Chest Histopathology --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+python train_zero_da.py --obj Chest --gpu 'cuda:5' --exclude Histopathology Brain Retina_RESC Liver --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+python train_zero_da.py --obj Liver --gpu 'cuda:6' --exclude Histopathology Chest Brain Retina_OCT2017 --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+python train_zero_da.py --obj Histopathology --gpu 'cuda:7' --exclude Liver Retina_OCT2017 Retina_RESC Chest --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_THIRD_DOMAIN_ADDITION'
+```
+```
+#### ADDITION OF THE FIFTH DOMAIN
+python train_zero_da.py --obj Retina_OCT2017 --gpu 'cuda:5' --exclude Histopathology Brain Retina_RESC Chest --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
+python train_zero_da.py --obj Retina_RESC --gpu 'cuda:6' --exclude Retina_OCT2017 Chest Histopathology Brain --intra_weight 0.5 --inter_weight 1.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
+python train_zero_da.py --obj Brain --gpu 'cuda:7' --exclude Retina_OCT2017 Retina_RESC Chest Liver --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
+python train_zero_da.py --obj Chest --gpu 'cuda:5' --exclude Histopathology Brain Retina_OCT2017 Liver --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
+python train_zero_da.py --obj Liver --gpu 'cuda:6' --exclude Retina_OCT2017 Chest Brain Retina_RESC --intra_weight 1.5 --inter_weight 0.5 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
+python train_zero_da.py --obj Histopathology --gpu 'cuda:7' --exclude Brain Retina_OCT2017 Retina_RESC Chest --intra_weight 1.0 --inter_weight 1.0 --load_path 'MODEL_CHECKPOINT_PATH_OF_FOURTH_DOMAIN_ADDITION'
 ```
 
 ## Testing
