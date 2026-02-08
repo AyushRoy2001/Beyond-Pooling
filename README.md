@@ -1,7 +1,7 @@
 <img width="861" height="771" alt="Screenshot 2026-02-08 083947" src="https://github.com/user-attachments/assets/4215d0ea-e33c-4d3d-a469-8b6464c75006" />
 
 
-# [AISTATS 2026] Beyond Pooling
+# [AISTATS 2026] Beyond Pooling: Matching for Robust Generalization under Data Heterogeneity
 
 <p align="center">
   <strong>Ayush Roy</strong>¹ &middot; 
