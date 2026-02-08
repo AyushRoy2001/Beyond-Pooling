@@ -49,6 +49,9 @@ python test_zero.py --obj Liver --gpu 'cuda:4' --save_path 'YOUR_MODEL_CHECKPOIN
 <img width="638" height="367" alt="mind_the_gap" src="https://github.com/user-attachments/assets/9d8c44f2-440a-4af9-9251-ce11d4d4d2fb" />
 <img width="954" height="181" alt="ablation" src="https://github.com/user-attachments/assets/578ce8f1-fb62-4cde-96f0-79d0272a9678" />
 
+## Acknowledgements
+We borrow code from MVFA (https://arxiv.org/pdf/2403.12570) and thank the authors for making the code public.
+
 # Citation
 ```bibtex
 @article{roy2025exchangeability,
