@@ -1,4 +1,6 @@
-<img width="861" height="771" alt="Screenshot 2026-02-08 083947" src="https://github.com/user-attachments/assets/4215d0ea-e33c-4d3d-a469-8b6464c75006" />
+<p align="center">
+  <img width="600" height="400" alt="Screenshot 2026-02-08 083947" src="https://github.com/user-attachments/assets/4215d0ea-e33c-4d3d-a469-8b6464c75006" />
+</p>
 
 
 # [AISTATS 2026] Beyond Pooling: Matching for Robust Generalization under Data Heterogeneity
@@ -6,12 +8,12 @@
 <p align="center">
   <strong>Ayush Roy</strong>¹ &middot; 
   <strong>Rudrasis Chakraborty</strong>² &middot;
-  <strong>Lav Varshney</strong>¹ &middot;
+  <strong>Lav Varshney</strong>³ &middot;
   <strong>Vishnu Suresh Lokhande</strong>¹
 </p>
 
 <p align="center">
-  ¹ University at Buffalo, SUNY &bull; ² Lawrence Livermore National Lab (LLNL)
+  ¹ University at Buffalo, SUNY &bull; ² Lawrence Livermore National Lab (LLNL) &bull; ³ Stony Brook University, SUNY
 </p>
 
 ## Abstract
@@ -45,9 +47,9 @@ python test_zero.py --obj Liver --gpu 'cuda:4' --save_path 'YOUR_MODEL_CHECKPOIN
 ```
 
 ## Qualitative Results
-<img width="920" height="394" alt="variance" src="https://github.com/user-attachments/assets/6128ab14-c9ae-4afd-8867-4f072414be66" />
-<img width="638" height="367" alt="mind_the_gap" src="https://github.com/user-attachments/assets/9d8c44f2-440a-4af9-9251-ce11d4d4d2fb" />
-<img width="954" height="181" alt="ablation" src="https://github.com/user-attachments/assets/578ce8f1-fb62-4cde-96f0-79d0272a9678" />
+<img width="400" height="350" alt="variance" src="https://github.com/user-attachments/assets/6128ab14-c9ae-4afd-8867-4f072414be66" />
+<img width="300" height="350" alt="mind_the_gap" src="https://github.com/user-attachments/assets/9d8c44f2-440a-4af9-9251-ce11d4d4d2fb" />
+<img width="705" height="181" alt="ablation" src="https://github.com/user-attachments/assets/578ce8f1-fb62-4cde-96f0-79d0272a9678" />
 
 ## Acknowledgements
 We borrow code from MVFA (https://arxiv.org/pdf/2403.12570) and thank the authors for making the code public.
