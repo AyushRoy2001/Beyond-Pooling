@@ -96,9 +96,10 @@ We borrow code from MVFA (https://arxiv.org/pdf/2403.12570) and thank the author
 
 # Citation
 ```bibtex
-@inproceedings{roybeyond,
+@article{roy2026beyond,
   title={Beyond Pooling: Matching for Robust Generalization under Data Heterogeneity},
-  author={Roy, Ayush and Chakraborty, Rudrasis and Varshney, Lav R and Lokhande, Vishnu Suresh},
-  booktitle={The 29th International Conference on Artificial Intelligence and Statistics}
+  author={Roy, Ayush and Chakraborty, Rudrasis and Varshney, Lav and Lokhande, Vishnu Suresh},
+  journal={arXiv preprint arXiv:2602.07154},
+  year={2026}
 }
 ```
