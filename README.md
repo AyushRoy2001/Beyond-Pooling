@@ -87,9 +87,19 @@ python test_zero.py --obj Liver --gpu 'cuda:4' --save_path 'YOUR_MODEL_CHECKPOIN
 ```
 
 ## Qualitative Results
-<img width="400" height="350" alt="variance" src="https://github.com/user-attachments/assets/6128ab14-c9ae-4afd-8867-4f072414be66" />
-<img width="300" height="350" alt="mind_the_gap" src="https://github.com/user-attachments/assets/9d8c44f2-440a-4af9-9251-ce11d4d4d2fb" />
+<table align="center">
+<tr>
+<td><img width="400" height="300" src="https://github.com/user-attachments/assets/6128ab14-c9ae-4afd-8867-4f072414be66"></td>
+<td><img width="400" height="300" src="https://github.com/user-attachments/assets/9d8c44f2-440a-4af9-9251-ce11d4d4d2fb"></td>
+</tr>
+</table>
+
+<p align="center">
 <img width="705" height="181" alt="ablation" src="https://github.com/user-attachments/assets/578ce8f1-fb62-4cde-96f0-79d0272a9678" />
+</p>
+<p align="center">
+<img width="715" height="500" alt="Screenshot 2026-05-04 180549" src="https://github.com/user-attachments/assets/689f83ee-0f57-4465-85af-f353275b0931" />
+</p>
 
 ## Acknowledgements
 We borrow code from MVFA (https://arxiv.org/pdf/2403.12570) and thank the authors for making the code public.
